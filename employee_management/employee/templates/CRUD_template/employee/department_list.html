@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}główna{% endblock %}
+
+{% block content %}
+   <h1>Department List</h1>
+  {% if departments %}
+  <ul>
+    {% for dept in departments %}
+      <li>
+          {{ dept.name }}
+          (<a href="{% url 'employee:dept_update' dept.id %}">Update</a> |
+          <a href="{% url 'employee:dept_delete' dept.id %}">Delete</a>) <br/>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no autos in the library.</p>
+  {% endif %}
+  <p>
+    {% if department_count > 0 %}
+      <a href="{% url 'employee:dept_create' %}">Add an auto</a>
+    {% else %}
+      Please add a make before you add an auto.
+    {% endif %}
+  </p>
+  <p>
+  <p>
+    <a href="{% url 'employee:start' %}">Back to main side</a>
+  </p>
+    <a href="{% url 'employee:dept_create' %}">Add a make</a>
+  </p>
+{% endblock %}

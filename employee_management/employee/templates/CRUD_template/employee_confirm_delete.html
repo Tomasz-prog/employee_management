@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}główna{% endblock %}
+
+{% block content %}
+
+<p>Are you sure you want to delete the make: {{ employee.usercode }} - {{ employee.first_name }} {{ employee.last_name }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes, delete.">
+  <input type="submit" onclick="window.location='{% url 'employee:start' %}' ; return false;" value="Cancel">
+</form>
+
+{% endblock %}

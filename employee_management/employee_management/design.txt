@@ -1,0 +1,23 @@
+Object:
+    User
+
+attributes:
+
+    usercode - numer użytkownika
+    first_name - imie
+    last_name   - nazwisko
+    supervisor - przełożony
+    department - dział w którym pracuje
+    start_work  - data zatrudnienia
+    team_leader - Boolean
+    shift   - zmiana
+    skills - operacje które potrafi obsługiwać
+    wykonywana_operacja - aktualnie wykonywana operacja
+
+methods:
+
+    dodanie_danych_do_data_base
+    liczenie_normy - liczenie normy przy zakonczeniu zadania
+
+
+templates:

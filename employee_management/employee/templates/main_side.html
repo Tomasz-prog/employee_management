@@ -1,0 +1,43 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}główna{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link " aria-current="page" href="{% url 'employee:register' %}">Register</a>
+        <a class="nav-link" href="{% url 'employee:login_request' %}">Login</a>
+        <a class="nav-link" href="{% url 'employee:logout_request' %}">Logout</a>
+
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="display-5 text-start ml-2 mt-2">
+{% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    <a href="{% url 'employee:add_employee' %}">Dodaj Pracownika</a><br>
+
+ <a href="{% url 'employee:list_employee' %}">Lista Pracowników</a><br>
+ <a href="{% url 'employee:dept_create' %}">Dodaj dział</a><br>
+ <a href="{% url 'employee:dept_list' %}">Lista działów</a><br>
+
+<p>dodaj operacje</p>
+
+<p></p>
+<p></p>
+</div>
+{% endblock %}
+
+
+
+
+

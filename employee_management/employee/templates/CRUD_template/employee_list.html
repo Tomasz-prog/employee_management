@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}główna{% endblock %}
+
+{% block content %}
+  <h1>Make List</h1>
+  {% if employee %}
+  <ul>
+    {% for worker in employee %}
+      <li>
+          {{ worker.usercode }} - {{ worker.first_name }} {{ worker.last_name }}
+         (<a href="{% url 'employee:update_employee' worker.id %}">Update</a> |
+          <a href="{% url 'employee:delete_employee' worker.id %}">Delete</a>)
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no makes in the library.</p>
+  {% endif %}
+  <p><a href="#">Add a make</a></p>
+  <p>
+    <a href="{% url 'employee:start' %}">Back to main side</a>
+  </p>
+{% endblock %}
